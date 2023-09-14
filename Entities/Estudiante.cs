@@ -116,7 +116,70 @@ namespace Boletin.Entities
             estudiantes.Add(estudiante);
         }
     }
-
+    public void EditGrades(List<Estudiante> estudiantes){
+            Console.Clear();
+            Console.WriteLine("Ingrese el Codigo del Estudiante a Modificar");
+            string id = Console.ReadLine();
+            Estudiante studentToEdit = estudiantes.FirstOrDefault(st => (st.Code ?? string.Empty)
+            .Equals(id)) ?? new Estudiante();
+            if (studentToEdit != null)
+            {
+                Console.WriteLine("Ingrese el tipo de nota a modificar");
+                Console.WriteLine("1. Quiz\n2. Trabajo\n3. Parcial\n0. Salir");
+                Console.WriteLine("Ingrese la nueva nota");
+                float nota = float.Parse(Console.ReadLine());
+                byte opcion = Convert.ToByte(Console.ReadLine());
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("Ingrese el numero de quiz a modificar");
+                        int quiz = Convert.ToInt32(Console.ReadLine());
+                        if (quiz > studentToEdit.Quices.Count)
+                        {
+                            Console.WriteLine("El estudiante no tiene ese quiz");
+                            Console.ReadKey();
+                            break;
+                        }else{
+                            studentToEdit.Quices[quiz - 1] = nota;
+                        break;
+                        }
+                        
+                    case 2:
+                        Console.WriteLine("Ingrese el numero de trabajo a modificar");
+                        int trabajo = Convert.ToInt32(Console.ReadLine());
+                        if (trabajo > studentToEdit.Trabajos.Count)
+                        {
+                            Console.WriteLine("El estudiante no tiene ese trabajo");
+                            Console.ReadKey();
+                            break;
+                        }else{
+                            studentToEdit.Trabajos[trabajo - 1] = nota;
+                            break;
+                        }
+                    case 3:
+                        Console.WriteLine("Ingrese el numero de parcial a modificar");
+                        int parcial = Convert.ToInt32(Console.ReadLine());
+                        if (parcial > studentToEdit.Parciales.Count)
+                        {
+                            Console.WriteLine("El estudiante no tiene ese parcial");
+                            Console.ReadKey();
+                            break;
+                        }else{
+                            studentToEdit.Parciales[parcial - 1] = nota;
+                            break;
+                        }
+                    case 0:
+                        break;
+                    default:
+                        Console.WriteLine("Opcion no valida");
+                        Console.ReadKey();
+                        break;
+                }
+                int idx = estudiantes.FindIndex(p => p.Code.Equals(id));
+                estudiantes[idx] = studentToEdit;
+                MisFunciones.SaveData(estudiantes);
+            }
+        }
     }
 
 }
