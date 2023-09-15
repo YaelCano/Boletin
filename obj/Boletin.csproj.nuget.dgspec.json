@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj": {}
+    "C:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj": {
+    "C:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj",
+        "projectUniqueName": "C:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj",
         "projectName": "Boletin",
-        "projectPath": "c:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj",
+        "projectPath": "C:\\Users\\Blacky27p\\Desktop\\Boletin\\Boletin.csproj",
         "packagesPath": "C:\\Users\\Blacky27p\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Blacky27p\\Desktop\\Boletin\\obj\\",
+        "outputPath": "C:\\Users\\Blacky27p\\Desktop\\Boletin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Blacky27p\\AppData\\Roaming\\NuGet\\NuGet.Config"
