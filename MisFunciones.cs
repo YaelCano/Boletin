@@ -103,6 +103,18 @@ public class MisFunciones
             Console.WriteLine(" {0,-5} |", nota != 0.0f ? nota.ToString() :  "0.0");
         }
     }
+    public static byte Find()
+    {
+        Console.Clear();
+        Console.WriteLine("--BUSCAR ALUMNO--");
+        Console.WriteLine("1. Buscar por codigo: ");        
+        Console.WriteLine("2. Buscar por nombre");        
+        Console.WriteLine("3. Buscar por edad:");
+        Console.WriteLine("4. Buscar por direccion: ");
+        Console.WriteLine("0. Regresar al menu");
+        Console.WriteLine("Opcion:");
+        return Convert.ToByte(Console.ReadLine());
+    }
     public static float calcularNotasFinal(List<float> quices, List<float> trabajos, List<float> parciales)
     {
         float valorQuices  = 0.25f;

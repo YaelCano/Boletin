@@ -1,4 +1,5 @@
-﻿using Boletin;
+﻿using System.Linq.Expressions;
+using Boletin;
 using Boletin.Entities;
 
 internal class Program
@@ -15,7 +16,9 @@ internal class Program
             Console.WriteLine("1. Registro de estudiantes");
             Console.WriteLine("2. Registro de notas");
             Console.WriteLine("3. Reportes e informes");
-            Console.WriteLine("4. Eliminar Alumno");
+            Console.WriteLine("4. Buscar Alumno: ");
+            Console.WriteLine("5. Eliminar Alumno");
+            Console.WriteLine("6. Modificar Notas: ");
             Console.WriteLine("0. Salir");
             Console.Write("Opcion: ");
             byte opcionMenu = Convert.ToByte(Console.ReadLine());
@@ -54,9 +57,11 @@ internal class Program
                         {
                             case 1:
                                 Console.Clear();
+                                MisFunciones.ImprimirNotas();
                                 break;
                             case 2:
                                 Console.Clear();
+                                MisFunciones.ImprimirNotasFinales(estudiantes);
                                 break;
                             case 0:
                                 Console.Clear();
@@ -71,7 +76,56 @@ internal class Program
                     }
                     break;
                 case 4:
+                    bool cicloBuscar =  true;
+                    while (cicloBuscar)
+                    {
+                        Console.Clear();
+                        byte opcionBuscar = MisFunciones.Find();
+                        switch (opcionBuscar)
+                        {
+                            case 1:
+                                Console.Clear();
+                                student.FindByCode(estudiantes);
+                                break;
+                            case 2:
+                                Console.Clear();
+                                student.FindByName(estudiantes);
+                                break;
+                            case 3:
+                                Console.Clear();
+                                student.FindByAge(estudiantes);
+                                break;
+                            case 4:
+                                Console.Clear();
+                                student.FindByAddres(estudiantes);
+                                Console.ReadKey();
+                                break;
+                            case 0:
+                                Console.Clear();
+                                cicloBuscar = false;
+                                break;
+                            default:
+                                Console.WriteLine("Opcion invalida");
+                                Console.WriteLine("Presione Enter para volver a ingresar: ");
+                                Console.ReadKey();
+                                break;      
+                        }
+                    }
+                    break;
+                case 5:
                     student.RemoveItem(estudiantes);
+                    break;
+                case 6:
+                    byte opcionEdit = MisFunciones.menuEditNotas();
+                    switch (opcionEdit)
+                    {
+                        case 1:
+                            student.EditGrades(estudiantes);
+                            break;
+                        case 2:
+                            student.RemoveGrade(estudiantes);
+                        break;
+                    }
                     break;
                 case 0:
                     cicloMenu = false;
@@ -82,9 +136,7 @@ internal class Program
                     Console.ReadKey();
                     break;
             }
-
         }
-
-
+        
     }
 }
