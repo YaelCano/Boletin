@@ -1,21 +1,5 @@
 [
   {
-    "Code": "123",
-    "Nombre": "Johlver",
-    "Direccion": "djhgf",
-    "Edad": 23,
-    "Quices": [
-      3.5,
-      5.0
-    ],
-    "Trabajos": [
-      4.4
-    ],
-    "Parciales": [
-      4.0
-    ]
-  },
-  {
     "Code": "1",
     "Nombre": "camilo",
     "Direccion": "12k",
